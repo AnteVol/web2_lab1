@@ -6,7 +6,7 @@ export const authConfig = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.SECRET,
-  baseURL: 'http://localhost:3000',
-  clientID: 'J5zA1Lu5ZTGCV2MWCYq2I0laSr3xFRaB',
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
   issuerBaseURL: 'https://dev-nuspof171g87mswr.us.auth0.com'
 };
