@@ -13,4 +13,14 @@
 
 ### Testni account:
 - **username**: `testuser@test.hr`
-- **password**: `TestUser123`
+- **password**: `TestUser123`  
+
+### Primjer JSON Podatka za Dodavanje Ulaznice
+Za kreiranje ulaznice, pošaljite zahtjev u JSON formatu sa sljedećim podacima:
+
+```json
+{
+  "vatin": "11111111111",
+  "firstName": "John",
+  "lastName": "Doe"
+}
