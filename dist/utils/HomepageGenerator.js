@@ -39,7 +39,7 @@ function generateHomepageHtml(ticketCount) {
         <body>
           <div class="container">
             <h1>Welcome to web2 lab1 ticket generator!</h1>
-            <p>Total Tickets Generated so far: <strong>${ticketCount}</strong></p>
+            <p>Total 🎫 generated so far: <strong>${ticketCount}</strong></p>
           </div>
         </body>
       </html>

@@ -5,7 +5,7 @@ import { authConfig } from '../config/Auth0';
 export const TokenValidation = validateJwt({
     secret: process.env.SECRET,
     audience: process.env.AUDIENCE,
-    issuerBaseURL: process.env.IS_SUERBASE_URL,
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
     tokenSigningAlg: 'HS256',
   });
 

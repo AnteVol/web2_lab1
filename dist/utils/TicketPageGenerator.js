@@ -46,7 +46,7 @@ function generateTicketHtml(vatin, firstName, lastName, creation_date, user) {
           <p><strong>First name:</strong> ${firstName}</p>
           <p><strong>Last name:</strong> ${lastName}</p>
           <p><strong>Created at:</strong> ${new Date(creation_date).toLocaleString()}</p>
-          <p><strong>User:</strong> ${user}</p>
+          <p><strong>Current user:</strong> ${user}</p>
         </div>
       </body>
     </html>
