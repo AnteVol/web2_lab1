@@ -12,6 +12,10 @@ exports.PersonTicketModel = {
         const result = await db_migrations_1.db.query('SELECT * FROM tickets WHERE id = $1', [ticketId]);
         return result.rows[0];
     },
+    async getPersonByVatin(vatin) {
+        const result = await db_migrations_1.db.query('SELECT * FROM persons WHERE vatin = $1', [vatin]);
+        return result.rows[0];
+    },
     async ticketsForPerson(vatin) {
         const result = await db_migrations_1.db.query('SELECT COUNT(*) FROM tickets WHERE vatin = $1', [vatin]);
         return parseInt(result.rows[0].count, 10);

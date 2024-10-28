@@ -34,7 +34,7 @@ function generateTicketHtml(vatin, firstName, lastName, creation_date, user) {
         </head>
         <body>
           <div class="ticket-details">
-            <h1>Detalji ulaznice</h1>
+            <h1>Ticket details</h1>
             <p><strong>Vatin:</strong> ${vatin}</p>
             <p><strong>First name:</strong> ${firstName}</p>
             <p><strong>Last name:</strong> ${lastName}</p>

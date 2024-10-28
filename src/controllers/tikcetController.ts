@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import qr from 'qrcode';
 import { v4 as uuid } from 'uuid';
 import { PersonTicketModel } from '../models/PersonTicketModel';
-import { generateTicketHtml } from '../pageGenerator'
+import { generateTicketHtml } from '../utils/TicketPageGenerator'
+import { generateHomepageHtml } from '../utils/HomePageGenerator'
 
 function validatePerson(vatin: string, firstName: string, lastName: string): boolean{
     if (!vatin.trim() || !firstName.trim() || !lastName.trim()) {
@@ -14,7 +15,7 @@ function validatePerson(vatin: string, firstName: string, lastName: string): boo
 export const totalTicketCount = async (req: Request, res: Response) => {
   try {
     const ticketCount = await PersonTicketModel.getTicketNumber();
-    res.json(ticketCount);
+    res.send(generateHomepageHtml(ticketCount));
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
@@ -54,10 +55,11 @@ export const createTicket = async (req: Request, res: Response) => {
   
     try {
       const ticket = await PersonTicketModel.getTicketById(id);
+      const person = await PersonTicketModel.getPersonByVatin(ticket.vatin)
       if (!ticket) {
         return res.sendStatus(404);
       }
-      const response = generateTicketHtml(ticket.vatin, ticket.first_name, ticket.lastName, ticket.creation_date, req.oidc.user)
+      const response = generateTicketHtml(ticket.vatin, person.first_name, person.last_name, ticket.creation_date, req.oidc.user?.name)
       res.send(response);
     } catch (error) {
       console.error(error);

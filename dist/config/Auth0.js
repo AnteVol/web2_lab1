@@ -10,7 +10,7 @@ exports.authConfig = {
     authRequired: false,
     auth0Logout: true,
     secret: process.env.SECRET,
-    baseURL: process.env.BASE_URL,
-    clientID: process.env.CLIENT_ID,
-    issuerBaseURL: process.env.IS_SUERBASE_URL,
+    baseURL: 'http://localhost:3000',
+    clientID: 'J5zA1Lu5ZTGCV2MWCYq2I0laSr3xFRaB',
+    issuerBaseURL: 'https://dev-nuspof171g87mswr.us.auth0.com'
 };

@@ -7,7 +7,8 @@ exports.getTicketById = exports.createTicket = exports.totalTicketCount = void 0
 const qrcode_1 = __importDefault(require("qrcode"));
 const uuid_1 = require("uuid");
 const PersonTicketModel_1 = require("../models/PersonTicketModel");
-const pageGenerator_1 = require("../pageGenerator");
+const TicketPageGenerator_1 = require("../utils/TicketPageGenerator");
+const HomePageGenerator_1 = require("../utils/HomePageGenerator");
 function validatePerson(vatin, firstName, lastName) {
     if (!vatin.trim() || !firstName.trim() || !lastName.trim()) {
         return false;
@@ -17,7 +18,7 @@ function validatePerson(vatin, firstName, lastName) {
 const totalTicketCount = async (req, res) => {
     try {
         const ticketCount = await PersonTicketModel_1.PersonTicketModel.getTicketNumber();
-        res.json(ticketCount);
+        res.send((0, HomePageGenerator_1.generateHomepageHtml)(ticketCount));
     }
     catch (error) {
         console.error(error);
@@ -52,10 +53,11 @@ const getTicketById = async (req, res) => {
     const { id } = req.params;
     try {
         const ticket = await PersonTicketModel_1.PersonTicketModel.getTicketById(id);
+        const person = await PersonTicketModel_1.PersonTicketModel.getPersonByVatin(ticket.vatin);
         if (!ticket) {
             return res.sendStatus(404);
         }
-        const response = (0, pageGenerator_1.generateTicketHtml)(ticket.vatin, ticket.first_name, ticket.lastName, ticket.creation_date, req.oidc.user);
+        const response = (0, TicketPageGenerator_1.generateTicketHtml)(ticket.vatin, person.first_name, person.last_name, ticket.creation_date, req.oidc.user?.name);
         res.send(response);
     }
     catch (error) {

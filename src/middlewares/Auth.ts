@@ -3,7 +3,7 @@ import { auth as validateJwt } from 'express-oauth2-jwt-bearer';
 import { authConfig } from '../config/Auth0';
 
 export const TokenValidation = validateJwt({
-    secret: 'eSLb0aAST56pk33DiGo4kGHLfZm5FJ7n',
+    secret: process.env.SECRET,
     audience: 'https://web2lab1/api',
     issuerBaseURL: 'https://dev-nuspof171g87mswr.us.auth0.com/',
     tokenSigningAlg: 'HS256',
