@@ -8,5 +8,5 @@ export const authConfig = {
   secret: process.env.SECRET,
   baseURL: process.env.BASE_URL,
   clientID: process.env.CLIENT_ID,
-  issuerBaseURL: 'https://dev-nuspof171g87mswr.us.auth0.com'
+  issuerBaseURL: process.env.BASE_URL
 };

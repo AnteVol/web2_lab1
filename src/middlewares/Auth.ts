@@ -4,8 +4,8 @@ import { authConfig } from '../config/Auth0';
 
 export const TokenValidation = validateJwt({
     secret: process.env.SECRET,
-    audience: 'https://web2lab1/api',
-    issuerBaseURL: 'https://dev-nuspof171g87mswr.us.auth0.com/',
+    audience: process.env.AUDIENCE,
+    issuerBaseURL: process.env.IS_SUERBASE_URL,
     tokenSigningAlg: 'HS256',
   });
 
