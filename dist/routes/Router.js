@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const tikcetController_1 = require("../controllers/tikcetController");
+const Auth_1 = require("../middlewares/Auth");
+const router = (0, express_1.Router)();
+router.get('/', tikcetController_1.totalTicketCount);
+router.post('/ticket', Auth_1.TokenValidation, tikcetController_1.createTicket);
+router.get('/ticket/:id', Auth_1.TokenValidation, tikcetController_1.getTicketById);
+exports.default = router;
