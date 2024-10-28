@@ -15,8 +15,7 @@
 - **username**: `testuser@test.hr`
 - **password**: `TestUser123`  
 
-### Primjer JSON Podatka za Dodavanje Ulaznice
-Za kreiranje ulaznice, pošaljite zahtjev u JSON formatu sa sljedećim podacima:
+### Primjer JSON podatka za dodavanje ulaznice
 
 ```json
 {
