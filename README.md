@@ -23,3 +23,16 @@
   "firstName": "John",
   "lastName": "Doe"
 }
+```
+### Primjer curl naredbe za dobivanje tokena:
+```
+curl --request POST \
+  --url https://dev-nuspof171g87mswr.us.auth0.com/oauth/token \
+  --header 'content-type: application/json' \
+  --data '{
+    "client_id": "PFignczEnWG0Z8CZkQVhU01ygwALjSo1",
+    "client_secret": "-syEHOr5O_Qw5onTAK-qjUn9zUj78zrcaMA-bm7R-z3NJ4MUONqtFcHdpkZrBs6f",
+    "audience": "https://web2-lab1/api",
+    "grant_type": "client_credentials"
+  }'
+```
