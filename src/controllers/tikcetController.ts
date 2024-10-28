@@ -38,7 +38,7 @@ export const createTicket = async (req: Request, res: Response) => {
     const ticketId = uuid();
     await PersonTicketModel.createTicket(ticketId, vatin, firstName, lastName);
 
-    const ticketUrl = `http://localhost:${process.env.PORT || 3000}/ticket/${ticketId}`;
+    const ticketUrl = `https://web2-lab1-ef2l.onrender.com/ticket/${ticketId}`;
     const qrCodeImage = await qr.toBuffer(ticketUrl); 
     res.set('Content-Type', 'image/png');
     return res.status(201).send(qrCodeImage);
